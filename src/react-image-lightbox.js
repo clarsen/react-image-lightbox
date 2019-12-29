@@ -600,6 +600,7 @@ class ReactImageLightbox extends Component {
         break;
 
       default:
+        this.props.onKeyDown(event) // pass along for possible handling
     }
   }
 
@@ -1758,6 +1759,9 @@ ReactImageLightbox.propTypes = {
   closeLabel: PropTypes.string,
 
   imageLoadErrorMessage: PropTypes.node,
+  // capturing key events in lightbox
+  onKeyDown: PropTypes.func,
+
 };
 
 ReactImageLightbox.defaultProps = {
@@ -1793,6 +1797,7 @@ ReactImageLightbox.defaultProps = {
   zoomInLabel: 'Zoom in',
   zoomOutLabel: 'Zoom out',
   imageLoadErrorMessage: 'This image failed to load',
+  onKeyDown: () => {}
 };
 
 export default ReactImageLightbox;
